@@ -1,8 +1,8 @@
-// turtle_sim_controller.cpp
-#include "turtle_sim_controller.hpp"
+// cli.cpp
+#include "cli.hpp"
 #include <iostream>
 
-TurtleSimController::TurtleSimController() : Node("turtle_sim_controller")
+TurtleSimCLI::TurtleSimCLI() : Node("cli")
 {
     /* 배운 내용: ROS2 매크로 중 RCLCPP_INFO가 있음 -> C++의 std::cout으로 이해함
     * 근데, [INFO] 관련 문구가 길게 나타나서 UI상 안 좋게 보임. 그래서 std::cout으로 출력 처리를 진행함

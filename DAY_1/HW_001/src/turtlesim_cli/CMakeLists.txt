@@ -31,7 +31,7 @@ include_directories(
 # Add executable file (Update)
 add_executable(turtlesim_cli 
   src/main.cpp 
-  src/turtle_sim_controller.cpp
+  src/cli.cpp
 )
 
 # Add ament dependency
