@@ -33,7 +33,7 @@ include_directories(
 add_executable(turtlesim_cli 
   src/main.cpp 
   src/turtlesim_cli.cpp
-  #src/turtle_control.cpp
+  src/turtlesim_control.cpp
 )
 
 # Add ament dependency
