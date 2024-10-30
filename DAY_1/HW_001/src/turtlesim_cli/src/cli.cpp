@@ -1,8 +1,9 @@
 // cli.cpp
 #include "cli.hpp"
 #include <iostream>
+#include <cstdlib>
 
-TurtleSimCLI::TurtleSimCLI() : Node("cli")
+TurtleSimCLI::TurtleSimCLI() : Node("cli"), turtle_movement_(shared_from_this())
 {
     /* 배운 내용: ROS2 매크로 중 RCLCPP_INFO가 있음 -> C++의 std::cout으로 이해함
     * 근데, [INFO] 관련 문구가 길게 나타나서 UI상 안 좋게 보임. 그래서 std::cout으로 출력 처리를 진행함
@@ -12,6 +13,7 @@ TurtleSimCLI::TurtleSimCLI() : Node("cli")
     // RCLCPP_INFO(this->get_logger(), "Mode Select: 1 - Control, 2 - Setting Bg, 3 - Setting shape of Turtle, 4 - Setting Pen size");
 
     std::cout << "Mode Select: 1 - Control, 2 - Setting Bg, 3 - Setting shape of Turtle, 4 - Setting Pen size" << std::endl;
+    system("ros2 run turtlesim turtlesim_node &");
 
     int mode;
     std::cin >> mode;
@@ -19,8 +21,13 @@ TurtleSimCLI::TurtleSimCLI() : Node("cli")
     switch (mode)
     {
     case 1:
+    {
         std::cout << "Selected Control Mode" << std::endl;
+        turtle_movement_ = std::make_shared<TurtleMovement>(shared_from_this());
+        std::thread control_thread(&TurtleSimCLI::controlMode, this);
+        control_thread.detach();
         break;
+    }
     case 2:
         std::cout << "Selected Setting Bg Mode" << std::endl;
         break;
@@ -33,4 +40,8 @@ TurtleSimCLI::TurtleSimCLI() : Node("cli")
     default:
         std::cout << "Invalid mode selection." << std::endl;
     }
+}
+void TurtleSimCLI::controlMode()
+{
+    turtle_movement_.move();
 }
