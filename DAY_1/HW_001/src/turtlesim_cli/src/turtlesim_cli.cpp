@@ -4,7 +4,8 @@ TurtleSimCLI::TurtleSimCLI() : Node("turtlesim_cli")
 {
     RCLCPP_INFO(this->get_logger(), "TurtleSimCLI Node 초기화");
     // TurtleSim 실행
-    std::system("ros2 run turtlesim turtlesim_node &");
+    //std::system("ros2 run turtlesim turtlesim_node &");
+    //control_ = TurtleSimControl(this);
     run();
 }
 
@@ -44,6 +45,7 @@ void TurtleSimCLI::processInput(int mode)
     {
     case 1:
         std::cout << "조종 모드를 선택했음.\n";
+        //control_.controlTurtle(); // 멤버 객체로 직접 접근
         break;
     case 2:
         std::cout << "배경색 설정 모드를 선택했음.\n";

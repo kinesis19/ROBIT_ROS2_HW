@@ -1,3 +1,4 @@
+#include "rclcpp/rclcpp.hpp"
 #include "turtlesim_cli.hpp"
 
 int main(int argc, char **argv)
