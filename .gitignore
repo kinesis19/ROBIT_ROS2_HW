@@ -115,4 +115,10 @@ AMENT_IGNORE
 .history
 .ionide
 
+# Others
+build/
+install/
+log/
+
+
 # End of https://www.toptal.com/developers/gitignore/api/c++,cmake,ros2,visualstudiocode,linux
