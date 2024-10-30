@@ -22,7 +22,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Find ROS2 and need package
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(geometry_msgs REQUIRED)
+#find_package(geometry_msgs REQUIRED)
 
 # Add include directory (New)
 include_directories(
@@ -32,12 +32,14 @@ include_directories(
 # Add executable file (Update)
 add_executable(turtlesim_cli 
   src/main.cpp 
-  src/cli.cpp
-  src/turtle_movement.cpp
+  src/turtlesim_cli.cpp
 )
 
 # Add ament dependency
-ament_target_dependencies(turtlesim_cli rclcpp geometry_msgs)
+ament_target_dependencies(turtlesim_cli 
+  rclcpp 
+  #geometry_msgs
+)
 
 # Setting Install target
 install(TARGETS
