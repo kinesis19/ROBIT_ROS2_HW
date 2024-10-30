@@ -1,5 +1,4 @@
 #include "turtlesim_cli.hpp"
-#include "turtlesim_control.hpp"
 
 TurtleSimCLI::TurtleSimCLI() : Node("turtlesim_cli")
 {
@@ -7,7 +6,7 @@ TurtleSimCLI::TurtleSimCLI() : Node("turtlesim_cli")
 
     // TurtleSim 실행
     std::system("ros2 run turtlesim turtlesim_node &");
-    
+
     run();
 }
 
@@ -53,13 +52,35 @@ void TurtleSimCLI::processInput(int mode)
         }
         break;
     case 2:
-        std::cout << "배경색 설정 모드를 선택했음.\n";
+        {
+            
+        }
         break;
     case 3:
         std::cout << "거북이 모양 설정 모드를 선택했음.\n";
         break;
     case 4:
-        std::cout << "pen 설정 모드를 선택했음.\n";
+        {
+         std::cout << "pen 설정 모드를 선택했음.\n";
+
+            // 사용자로부터 pen 설정을 입력 받기
+            int r, g, b, width;
+            bool off;
+            std::cout << "펜 색상 설정 (r g b): ";
+            std::cin >> r >> g >> b;
+
+            std::cout << "펜 두께 설정 (width): ";
+            std::cin >> width;
+
+            std::cout << "펜 사용 여부 설정 (0: on, 1: off): ";
+            std::cin >> off;
+
+            // turtlesim 스타일 객체 생성
+            auto turtle_style = std::make_shared<TurtleSimStyle>(this->shared_from_this(), "turtle1");
+
+            // setPen 호출
+            turtle_style->setPen(r, g, b, width, off);   
+        }
         break;
     default:
         std::cout << "없는 모드다.\n";

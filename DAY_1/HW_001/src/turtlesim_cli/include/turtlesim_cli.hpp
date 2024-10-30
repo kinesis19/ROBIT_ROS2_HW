@@ -3,6 +3,7 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "turtlesim_control.hpp"
+#include "turtlesim_style.hpp"
 #include <string>
 #include <iostream>
 #include <cstdlib>
