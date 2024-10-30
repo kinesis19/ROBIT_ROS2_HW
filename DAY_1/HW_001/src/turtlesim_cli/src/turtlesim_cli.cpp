@@ -61,25 +61,9 @@ void TurtleSimCLI::processInput(int mode)
         break;
     case 4:
         {
-         std::cout << "pen 설정 모드를 선택했음.\n";
-
-            // 사용자로부터 pen 설정을 입력 받기
-            int r, g, b, width;
-            bool off;
-            std::cout << "펜 색상 설정 (r g b): ";
-            std::cin >> r >> g >> b;
-
-            std::cout << "펜 두께 설정 (width): ";
-            std::cin >> width;
-
-            std::cout << "펜 사용 여부 설정 (0: on, 1: off): ";
-            std::cin >> off;
-
-            // turtlesim 스타일 객체 생성
-            auto turtle_style = std::make_shared<TurtleSimStyle>(this->shared_from_this(), "turtle1");
-
-            // setPen 호출
-            turtle_style->setPen(r, g, b, width, off);   
+            std::cout << "pen 설정 모드를 선택했음.\n";
+            auto turtle_style = std::make_shared<TurtlesimStyle>();
+            turtle_style->setPenStyle();  // setPenStyle 호출
         }
         break;
     default:

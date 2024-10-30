@@ -1,18 +1,17 @@
 #ifndef TURTLESIM_STYLE_HPP
 #define TURTLESIM_STYLE_HPP
 
-#include <rclcpp/rclcpp.hpp>
-#include <turtlesim/srv/set_pen.hpp>
-#include <iostream>
+#include "rclcpp/rclcpp.hpp"
+#include "turtlesim/srv/set_pen.hpp"
+#include <string>
 
-class TurtleSimStyle {
+class TurtlesimStyle : public rclcpp::Node {
 public:
-    TurtleSimStyle(std::shared_ptr<rclcpp::Node> node, const std::string& turtle_name);
-    void setPen(int r, int g, int b, int width, bool off);
+    TurtlesimStyle();
+    void setPenStyle();
 
 private:
     rclcpp::Client<turtlesim::srv::SetPen>::SharedPtr set_pen_client_;
-    std::string turtle_name_;
 };
 
 #endif // TURTLESIM_STYLE_HPP
