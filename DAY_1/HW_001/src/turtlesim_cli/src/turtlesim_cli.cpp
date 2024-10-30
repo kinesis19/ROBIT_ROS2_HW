@@ -2,7 +2,9 @@
 
 TurtleSimCLI::TurtleSimCLI() : Node("turtlesim_cli")
 {
-    RCLCPP_INFO(this->get_logger(), "TurtleSimCLI Node Initialized");
+    RCLCPP_INFO(this->get_logger(), "TurtleSimCLI Node 초기화");
+    // TurtleSim 실행
+    std::system("ros2 run turtlesim turtlesim_node &");
     run();
 }
 
