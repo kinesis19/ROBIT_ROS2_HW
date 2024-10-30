@@ -53,7 +53,9 @@ void TurtleSimCLI::processInput(int mode)
         break;
     case 2:
         {
-            
+            std::cout << "배경 설정 모드를 선택했음.\n";
+            auto turtle_style_bg = std::make_shared<TurtlesimStyleBg>();
+            turtle_style_bg->setBackgroundColor();  // setPenStyle 호출
         }
         break;
     case 3:

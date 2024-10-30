@@ -24,6 +24,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(turtlesim REQUIRED)
+find_package(std_srvs REQUIRED)
 
 
 # Add include directory (New)
@@ -38,7 +39,8 @@ add_executable(turtlesim_cli
   src/main.cpp 
   src/turtlesim_cli.cpp
   src/turtlesim_control.cpp
-  src/turtlesim_style.cpp
+  src/turtlesim_style_pen.cpp
+  src/turtlesim_style_bg.cpp
 )
 
 # Add ament dependency
@@ -46,6 +48,7 @@ ament_target_dependencies(turtlesim_cli
   rclcpp 
   geometry_msgs
   turtlesim
+  std_srvs
 )
 
 # Setting Install target

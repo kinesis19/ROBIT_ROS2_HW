@@ -1,5 +1,5 @@
-#ifndef TURTLESIM_STYLE_HPP
-#define TURTLESIM_STYLE_HPP
+#ifndef TURTLESIM_STYLE_PEN_HPP
+#define TURTLESIM_STYLE_PEN_HPP
 
 #include "rclcpp/rclcpp.hpp"
 #include "turtlesim/srv/set_pen.hpp"
@@ -14,4 +14,4 @@ private:
     rclcpp::Client<turtlesim::srv::SetPen>::SharedPtr set_pen_client_;
 };
 
-#endif // TURTLESIM_STYLE_HPP
+#endif // TURTLESIM_STYLE_PEN_HPP
