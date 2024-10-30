@@ -59,7 +59,12 @@ void TurtleSimCLI::processInput(int mode)
         }
         break;
     case 3:
-        std::cout << "거북이 모양 설정 모드를 선택했음.\n";
+        {
+            std::cout << "거북이 모양 설정 모드를 선택했음.\n";
+            auto turtle_style_shape = std::make_shared<TurtlesimStyleShape>();
+            turtle_style_shape->setTurtleShape(); // setTurtleShape 호출
+        }
+        
         break;
     case 4:
         {

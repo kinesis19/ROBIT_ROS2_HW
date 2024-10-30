@@ -41,6 +41,7 @@ add_executable(turtlesim_cli
   src/turtlesim_control.cpp
   src/turtlesim_style_pen.cpp
   src/turtlesim_style_bg.cpp
+  src/turtlesim_style_shape.cpp
 )
 
 # Add ament dependency

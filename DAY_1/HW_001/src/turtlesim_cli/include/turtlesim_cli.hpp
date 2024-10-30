@@ -3,8 +3,9 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "turtlesim_control.hpp"
-#include "turtlesim_style_pen.hpp"
 #include "turtlesim_style_bg.hpp"
+#include "turtlesim_style_shape.hpp"
+#include "turtlesim_style_pen.hpp"
 #include <string>
 #include <iostream>
 #include <cstdlib>
