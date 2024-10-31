@@ -42,6 +42,10 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
   // cmd_vel 업데이트를 위한 연결
   connect(qnode, SIGNAL(rosShutDown()), this, SLOT(close()));
   connect(qnode, SIGNAL(cmdVelUpdated(double, double, double, double, double, double)), this, SLOT(updateCmdVel(double, double, double, double, double, double)));
+
+  // Pen 제어를 위한 연결
+  connect(ui->btnDeploy_Pen, &QPushButton::clicked, this, &MainWindow::onDeployPenColor);
+
 }
 
 void MainWindow::closeEvent(QCloseEvent* event)
@@ -82,6 +86,18 @@ void MainWindow::onDeployBackgroundColor()
   int b = ui->lineEditBgB->text().toInt();
   qnode->setBackgroundColor(r, g, b);
 }
+
+// Pen 제어 메서드
+void MainWindow::onDeployPenColor()
+{
+  int r = ui->lineEditBgR_Pen->text().toInt();
+  int g = ui->lineEditBgG_Pen->text().toInt();
+  int b = ui->lineEditBgB_Pen->text().toInt();
+  int width = ui->lineEditWidth_Pen->text().toInt();
+  qnode->setPenStyle(r, g, b, width);
+}
+
+
 
 // cmd_vel를 라벨에 업데이트 하는 메서드
 void MainWindow::updateCmdVel(double linear_x, double linear_y, double linear_z, double angular_x, double angular_y, double angular_z)

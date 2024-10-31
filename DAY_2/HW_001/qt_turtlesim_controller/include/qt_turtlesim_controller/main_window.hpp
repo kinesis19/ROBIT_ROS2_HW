@@ -42,7 +42,9 @@ private slots:
   void onMoveBack();
   void onTurnLeft();
   void onTurnRight();
+
   void onDeployBackgroundColor();
+  void onDeployPenColor();
 
   void updateCmdVel(double linear_x, double linear_y, double linear_z, double angular_x, double angular_y, double angular_z);
 };

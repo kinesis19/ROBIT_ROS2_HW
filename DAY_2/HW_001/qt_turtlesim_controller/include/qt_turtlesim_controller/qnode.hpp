@@ -21,6 +21,7 @@
 #include <QThread>
 #include "geometry_msgs/msg/twist.hpp"
 #include "std_srvs/srv/empty.hpp"
+#include "turtlesim/srv/set_pen.hpp" // pen 설정을 위한 서비스 헤더 파일 추가(1일차 과제 응용)
 
 /*****************************************************************************
 ** Class
@@ -35,6 +36,7 @@ public:
   void moveTurtle(double linear_x, double angular_z);
   // 거북이 배경색 제어를 위한 메서드
   void setBackgroundColor(int r, int g, int b);
+  void setPenStyle(int r, int g, int b, int width);
 
 protected:
   void run();
@@ -51,6 +53,9 @@ private:
 
   // cmd_vel 구독
   rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr cmd_vel_subscription;
+
+  // Pen 설정
+  rclcpp::Client<turtlesim::srv::SetPen>::SharedPtr set_pen_client_;
 
 
 Q_SIGNALS:

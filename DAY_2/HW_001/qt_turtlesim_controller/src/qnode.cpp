@@ -37,6 +37,9 @@ QNode::QNode()
       }
   );
 
+  // pen 설정을 위한 set_pen_client_ 생성
+  set_pen_client_ = node->create_client<turtlesim::srv::SetPen>("/turtle1/set_pen");
+
   this->start();
 }
 
@@ -82,4 +85,19 @@ void QNode::setBackgroundColor(int r, int g, int b) {
     auto request = std::make_shared<std_srvs::srv::Empty::Request>();
     clear_client_->async_send_request(request);
   }
+}
+
+// Pen 제어 메서드
+void QNode::setPenStyle(int r, int g, int b, int width) {
+
+
+  // 요청 객체 생성 -> Pen 설정을 위한 서비스 요청 객체를 생성함
+  auto request = std::make_shared<turtlesim::srv::SetPen::Request>();
+
+  request->r = std::max(0, std::min(r, 255));
+  request->g = std::max(0, std::min(g, 255));
+  request->b = std::max(0, std::min(b, 255));
+  request->width = std::max(0, std::min(width, 10));
+
+  auto future = set_pen_client_->async_send_request(request);
 }
