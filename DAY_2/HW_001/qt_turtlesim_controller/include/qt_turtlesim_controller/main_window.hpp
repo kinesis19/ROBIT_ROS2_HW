@@ -36,6 +36,17 @@ public:
 private:
   Ui::MainWindowDesign* ui;
   void closeEvent(QCloseEvent* event);
+  
+private slots:
+  void onMoveFront();
+  void onMoveBack();
+  void onTurnLeft();
+  void onTurnRight();
+  void onDeployBackgroundColor();
+
+  void updateCmdVel(double linear_x, double linear_y, double linear_z, double angular_x, double angular_y, double angular_z);
 };
+
+
 
 #endif  // qt_turtlesim_controller_MAIN_WINDOW_H

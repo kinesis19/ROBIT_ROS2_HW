@@ -71,6 +71,9 @@
        </item>
        <item>
         <widget class="QLineEdit" name="lineEditBgR">
+         <property name="maxLength">
+          <number>3</number>
+         </property>
          <property name="placeholderText">
           <string>e.g.,) 123</string>
          </property>
@@ -92,6 +95,9 @@
        </item>
        <item>
         <widget class="QLineEdit" name="lineEditBgG">
+         <property name="maxLength">
+          <number>3</number>
+         </property>
          <property name="placeholderText">
           <string>e.g.,) 123</string>
          </property>
@@ -113,6 +119,9 @@
        </item>
        <item>
         <widget class="QLineEdit" name="lineEditBgB">
+         <property name="maxLength">
+          <number>3</number>
+         </property>
          <property name="placeholderText">
           <string>e.g.,) 123</string>
          </property>
@@ -150,7 +159,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_8">
+      <widget class="QLabel" name="label_Linear_and_Angular_X">
        <property name="text">
         <string>Linear X: 0.0     |      Angular X: 0.0</string>
        </property>
@@ -160,9 +169,9 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_9">
+      <widget class="QLabel" name="label_Linear_and_Angular_Y">
        <property name="text">
-        <string>Linear Y: 0.0     |      Angular Y: 0.0</string>
+        <string>Linear X: 0.0     |      Angular X: 0.0</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -170,7 +179,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_10">
+      <widget class="QLabel" name="label_Linear_and_Angular_Z">
        <property name="text">
         <string>Linear Z: 0.0     |      Angular Z: 0.0</string>
        </property>
@@ -223,7 +232,7 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
        <item>
-        <widget class="QPushButton" name="btnMoveLeft">
+        <widget class="QPushButton" name="btnTurnLeft">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
@@ -236,7 +245,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btnMoveRigh">
+        <widget class="QPushButton" name="btnTurnRight">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
