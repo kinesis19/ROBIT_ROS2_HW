@@ -46,6 +46,11 @@ private slots:
   void onDeployBackgroundColor();
   void onDeployPenColor();
 
+  // 삼각형 그리기
+  void onDrawTriangle();
+  void onDrawQuadrilateral();
+  void onDrawCircle();
+
   void updateCmdVel(double linear_x, double linear_y, double linear_z, double angular_x, double angular_y, double angular_z);
 };
 

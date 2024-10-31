@@ -46,6 +46,14 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
   // Pen 제어를 위한 연결
   connect(ui->btnDeploy_Pen, &QPushButton::clicked, this, &MainWindow::onDeployPenColor);
 
+  // 삼각형 그리기 버튼 연결
+  connect(ui->btnDraw_Triangle, &QPushButton::clicked, this, &MainWindow::onDrawTriangle);
+  // 네모 그리기 버튼
+  connect(ui->btnDraw_Quadrilateral, &QPushButton::clicked, this, &MainWindow::onDrawQuadrilateral);
+  // 원형 그리기 버튼
+  connect(ui->btnDraw_Circle, &QPushButton::clicked, this, &MainWindow::onDrawCircle);
+
+
 }
 
 void MainWindow::closeEvent(QCloseEvent* event)
@@ -106,4 +114,30 @@ void MainWindow::updateCmdVel(double linear_x, double linear_y, double linear_z,
     ui->label_Linear_and_Angular_X->setText(QString("Linear X: %1 | Angular X: %2").arg(linear_x).arg(angular_x));
     ui->label_Linear_and_Angular_Y->setText(QString("Linear Y: %1 | Angular Y: %2").arg(linear_y).arg(angular_y));
     ui->label_Linear_and_Angular_Z->setText(QString("Linear Z: %1 | Angular Z: %2").arg(linear_z).arg(angular_z));
+}
+
+// 삼각형 그리는 메서드
+void MainWindow::onDrawTriangle() {
+  // lineEdit의 값을 가져오고, 비어 있다면 디폴트 값으로 1 설정함
+  // 삼항 연산으로 처리해야 하는 두 가지의 연산을 깔끔하게 구현함
+  double sideLength = ui->lineEdit_LengthSide->text().isEmpty() ? 1.0 : ui->lineEdit_LengthSide->text().toDouble();
+
+  // 삼각형 그리기 메서드 호출
+  qnode->drawTriangle(sideLength);
+}
+
+// 네모 그리는 메서드
+void MainWindow::onDrawQuadrilateral()
+{
+    // 네모를 그리기 위한 side 길이 입력받기
+    int sideLength = ui->lineEdit_LengthSide->text().isEmpty() ? 1.0 : ui->lineEdit_LengthSide->text().toDouble();
+    qnode->drawQuadrilateral(sideLength);
+}
+
+// 원 그리는 메서드
+void MainWindow::onDrawCircle()
+{
+    // 원을 그리기 위한 다이아미터 길이 입력받기
+    int diameterLength = ui->lineEdit_LengthDiameter->text().isEmpty() ? 1.0 : ui->lineEdit_LengthDiameter->text().toDouble();
+    qnode->drawCircle(diameterLength);
 }

@@ -19,6 +19,7 @@
 #include <rclcpp/rclcpp.hpp>
 #endif
 #include <QThread>
+#include <math.h> // M_PI 사용해서 각도 회전하기 위함
 #include "geometry_msgs/msg/twist.hpp"
 #include "std_srvs/srv/empty.hpp"
 #include "turtlesim/srv/set_pen.hpp" // pen 설정을 위한 서비스 헤더 파일 추가(1일차 과제 응용)
@@ -37,6 +38,11 @@ public:
   // 거북이 배경색 제어를 위한 메서드
   void setBackgroundColor(int r, int g, int b);
   void setPenStyle(int r, int g, int b, int width);
+
+  // 삼각형 그리는 메서드
+  void drawTriangle(double sideLength);
+  void drawQuadrilateral(double sideLength);
+  void drawCircle(double diameterLength);
 
 protected:
   void run();
