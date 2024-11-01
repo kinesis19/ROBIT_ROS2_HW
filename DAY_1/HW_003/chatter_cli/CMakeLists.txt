@@ -13,6 +13,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # 필요한 패키지 찾기
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
 
 # include directory 추가하기
 include_directories(
@@ -20,20 +21,17 @@ include_directories(
   ${rclcpp_INCLUDE_DIRS}
 )
 
+# talker하고 listener를 각각 터미널에서 실행해야 하기에 excutable 설정을 해줘야 한다는 것을 알게 됨
+add_executable(talker src/talker.cpp)
+ament_target_dependencies(talker rclcpp std_msgs)
 
-# executable 파일 추가
-add_executable(chatter_cli 
-  src/my_cpp_node.cpp
-)
-
-# Ament dependency 추가
-ament_target_dependencies(chatter_cli 
-  rclcpp
-)
+add_executable(listener src/listener.cpp)
+ament_target_dependencies(listener rclcpp std_msgs)
 
 # Install target 설정
 install(TARGETS
-  chatter_cli
+  talker
+  listener
   DESTINATION lib/${PROJECT_NAME}
 )
 
