@@ -15,6 +15,7 @@ public:
 private:
     rclcpp::Client<turtlesim::srv::Spawn>::SharedPtr spawn_client_;
     rclcpp::Client<turtlesim::srv::Kill>::SharedPtr kill_client_;
+    std::string current_turtle_name_;
 };
 
 #endif // TURTLESIM_STYLE_SHAPE_HPP
