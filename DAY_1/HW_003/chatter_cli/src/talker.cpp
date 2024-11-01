@@ -9,8 +9,8 @@
 Talker::Talker() : Node("talker")
 {   
     // 퍼블리셔 초기화
-    publisher_ = this->create_publisher<std_msgs::msg::String>("chatter_cli", 10);
-    count_publisher_ = this->create_publisher<std_msgs::msg::Int64>("chatter_count", 10);
+    publisher_ = this->create_publisher<std_msgs::msg::String>("/chatter_cli", 10);
+    count_publisher_ = this->create_publisher<std_msgs::msg::Int64>("/chatter_count", 10);
     RCLCPP_INFO(this->get_logger(), "Talker Node 초기화 완료");
 }
 
