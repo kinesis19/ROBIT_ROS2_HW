@@ -4,7 +4,6 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 #include "std_msgs/msg/int64.hpp"
-#include <iostream>
 
 class Talker : public rclcpp::Node
 {
