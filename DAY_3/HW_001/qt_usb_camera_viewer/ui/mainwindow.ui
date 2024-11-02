@@ -21,17 +21,20 @@
    <locale language="English" country="Australia"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QLabel" name="labelDisplayUSBCamera">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>220</y>
-      <width>89</width>
-      <height>25</height>
+      <x>150</x>
+      <y>60</y>
+      <width>640</width>
+      <height>480</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Camera Feed</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
   </widget>
