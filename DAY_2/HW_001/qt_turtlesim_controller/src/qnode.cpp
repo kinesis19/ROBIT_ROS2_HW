@@ -152,34 +152,34 @@ void QNode::drawQuadrilateral(double sideLength) {
   velocity_publisher->publish(twist_msg);
 }
 
-// 원 그리는 신호 받았을 때 거북이가 원을 그림 (미완성)
-// 원 그리는 건 공식 이해가 안 되어서 레퍼런스와 인공지능을 응용함
-// 공식 이해가 안 되고, 적용해도 의도한 바와 같이 그림이 안 그려짐
+// 원 그리는 신호 받았을 때 거북이가 원을 그림
 void QNode::drawCircle(double diameterLength) {
   // 새로운 스레드를 생성하여 원 그리기 동작 수행
   std::thread drawThread([this, diameterLength]() {
-      auto twist_msg = geometry_msgs::msg::Twist();
+    auto twist_msg = geometry_msgs::msg::Twist();
 
-      // 원을 그리기 위한 설정
-      double radius = diameterLength / 2.0;              // 반지름 계산
-      double linearVelocity = 0.5;                       // 선형 속도 설정
-      double angularVelocity = linearVelocity / radius;  // 각속도 설정 (v = r * ω)
+    // 원을 그리기 위한 설정
+    double radius = diameterLength / 2.0;              // 반지름 계산
+    double linearVelocity = 1.0;                       // 선형 속도 설정
+    double angularVelocity = linearVelocity / radius;  // 각속도 설정 (v = r * ω)
 
-      int segments = 36; // 원을 그리기 위한 분할 수 (10도씩 36번 이동)
-      for (int i = 0; i < segments; ++i) {
-          // 직선 이동 및 각속도 적용
-          twist_msg.linear.x = linearVelocity;
-          twist_msg.angular.z = angularVelocity;
-          velocity_publisher->publish(twist_msg);
+    // 원을 그리기 위해 직선으로 나눠서 이동 시킴
+    // angular나 직선 카운트를 while로 처리해도 깔끔하게 될 듯
+    int segments = 16 * diameterLength;
+    
+    for (int i = 0; i < segments; i++) {
+        // 각 구간마다 직선 이동과 회전을 수행
+        twist_msg.linear.x = linearVelocity;
+        twist_msg.angular.z = angularVelocity;
 
-          // 이동 후 짧은 지연 시간 추가 (비동기 실행 중 다른 작업에 영향이 없도록)
-          rclcpp::sleep_for(std::chrono::milliseconds(200)); // 지연 추가
-      }
+        velocity_publisher->publish(twist_msg);
+        rclcpp::sleep_for(std::chrono::milliseconds(200)); // 각 구간 이동을 위한 시간(딜레이 없으면 바로바로 처리 되서 의도한 대로 원이 안 그려지는 현상이 발생 됨)
+    }
 
-      // 멈춤
-      twist_msg.linear.x = 0.0; // 다 그렸으면 멈추도록 처리
-      twist_msg.angular.z = 0.0;
-      velocity_publisher->publish(twist_msg);
+    // 멈춤
+    twist_msg.linear.x = 0.0; // 다 그렸으면 멈추도록 처리
+    twist_msg.angular.z = 0.0;
+    velocity_publisher->publish(twist_msg);
   });
 
   // 스레드를 detach하여 메인 스레드와 독립적으로 동작하도록 설정
