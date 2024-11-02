@@ -33,6 +33,10 @@ public:
   ~MainWindow();
   QNode* qnode;
 
+private slots:
+    void onPublishButtonClicked();
+    void updateLabel(const QString &message, int count);
+
 private:
   Ui::MainWindowDesign* ui;
   void closeEvent(QCloseEvent* event);
