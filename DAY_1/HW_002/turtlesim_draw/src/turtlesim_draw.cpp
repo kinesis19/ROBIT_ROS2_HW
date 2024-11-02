@@ -53,28 +53,34 @@ void TurtleSimDraw::processInput(int mode)
             int input;
             std::cin >> input;
             
-            if(input == 1){
-                auto turtle_draw_shape = std::make_shared<TurtlesimDrawShape>();
-                turtle_draw_shape->drawTriangle(sideLength);
-            }else if(input == 2){
-                std::cout << "어떤 크기 설정? <1. 변의 길이 | 2. 원의 지름 >" << std::endl;
-                int inputOption;
-                std::cin >> inputOption;
-                
-                auto turtle_style_length = std::make_shared<TurtlesimStyleLength>();
+            auto turtle_draw_shape = std::make_shared<TurtlesimDrawShape>();
 
-                if(inputOption == 1) turtle_style_length->setPenStyleSideLength();
-                else turtle_style_length->setPenStyleDiameterLength();
-                
+            if(input == 1){
+                turtle_draw_shape->drawTriangle(side_length_);
+            }else if(input == 2){
+                turtle_draw_shape->drawCircle(diameter_length_);
             }else if(input == 3){
-                auto turtle_draw_shape = std::make_shared<TurtlesimDrawShape>();
-                turtle_draw_shape->drawQuadrilateral(diameterLength);
+                turtle_draw_shape->drawQuadrilateral(side_length_);
             }
         }
         break;
     case 2:
         {
             std::cout << "크기 설정 모드를 선택했음.\n";
+
+            std::cout << "어떤 크기 설정? <1. 변의 길이 | 2. 원의 지름 >" << std::endl;
+            int inputOption;
+            std::cin >> inputOption;
+            
+            auto turtle_style_length = std::make_shared<TurtlesimStyleLength>();
+
+            if(inputOption == 1){
+                turtle_style_length->setPenStyleSideLength();
+                side_length_ = turtle_style_length->getSideLength();
+            } else if(inputOption == 2) {
+                turtle_style_length->setPenStyleDiameterLength();
+                diameter_length_ = turtle_style_length->getDiameterLength();
+            } 
             
         }
         break;

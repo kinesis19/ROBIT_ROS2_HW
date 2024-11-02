@@ -28,6 +28,9 @@ private:
     double sideLength, diameterLength;
     std::shared_ptr<TurtlesimDrawShape> turtle_draw_shape;
 
+    double side_length_ = 1.0;       // 변의 길이 (기본값)
+    double diameter_length_ = 1.0;   // 원의 지름 (기본값)
+
 };
 
 #endif // TURTLESIM_DRAW_HPP

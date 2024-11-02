@@ -8,12 +8,17 @@
 class TurtlesimStyleLength : public rclcpp::Node {
 public:
     TurtlesimStyleLength();
+
     void setPenStyleSideLength();
     void setPenStyleDiameterLength();
 
-private:
+    double getSideLength() const;
+    double getDiameterLength() const;
 
+private:
     rclcpp::Client<turtlesim::srv::SetPen>::SharedPtr set_pen_client_;
+    double side_length_ = 1.0; // 기본 변의 길이
+    double diameter_length_ = 1.0; // 기본 원의 지름
 };
 
 #endif // TURTLESIM_STYLE_LENGTH_HPP
