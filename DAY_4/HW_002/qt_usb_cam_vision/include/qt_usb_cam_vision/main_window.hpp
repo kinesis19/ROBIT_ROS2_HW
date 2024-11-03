@@ -33,6 +33,9 @@ public:
   ~MainWindow();
   QNode* qnode;
 
+private slots:
+  void updateImage(const QPixmap& pixmap);  // 이미지 업데이트 메서드
+
 private:
   Ui::MainWindowDesign* ui;
   void closeEvent(QCloseEvent* event);
