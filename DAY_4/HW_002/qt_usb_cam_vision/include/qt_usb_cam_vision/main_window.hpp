@@ -6,50 +6,26 @@
  * @date August 2024
  **/
 
-#ifndef qt_usb_cam_vision_MAIN_WINDOW_H
-#define qt_usb_cam_vision_MAIN_WINDOW_H
-
-/*****************************************************************************
-** Includes
-*****************************************************************************/
+#ifndef QT_USB_CAM_VISION_MAIN_WINDOW_H
+#define QT_USB_CAM_VISION_MAIN_WINDOW_H
 
 #include <QMainWindow>
-#include "QIcon"
-#include "qnode.hpp"
+#include <QIcon>
 #include "ui_mainwindow.h"
+#include "qnode.hpp"
 
-/*****************************************************************************
-** Interface [MainWindow]
-*****************************************************************************/
-/**
- * @brief Qt central, all operations relating to the view part here.
- */
-// class MainWindow : public QMainWindow
-// {
-//   Q_OBJECT
-
-// public:
-//   MainWindow(QWidget* parent = nullptr);
-//   ~MainWindow();
-//   QNode* qnode;
-
-// private:
-//   Ui::MainWindowDesign* ui;
-//   void closeEvent(QCloseEvent* event);
-// };
 class MainWindow : public QMainWindow
 {
   Q_OBJECT
 
 public:
-  MainWindow(QWidget* parent = nullptr, rclcpp::Node::SharedPtr node = nullptr);
+  MainWindow(QWidget* parent);
   ~MainWindow();
 
 private:
   Ui::MainWindowDesign* ui;
-  rclcpp::Node::SharedPtr node;  // 외부에서 받은 ROS2 노드 포인터
+  QNode* qnode;
   void closeEvent(QCloseEvent* event);
 };
 
-
-#endif  // qt_usb_cam_vision_MAIN_WINDOW_H
+#endif  // QT_USB_CAM_VISION_MAIN_WINDOW_H

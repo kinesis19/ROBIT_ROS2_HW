@@ -5,38 +5,14 @@
  *
  * @date August 2024
  **/
-
-#ifndef qt_usb_cam_vision_SETTINGS_WINDOW_H
-#define qt_usb_cam_vision_SETTINGS_WINDOW_H
-
-/*****************************************************************************
-** Includes
-*****************************************************************************/
+#ifndef QT_USB_CAM_VISION_SETTINGS_WINDOW_H
+#define QT_USB_CAM_VISION_SETTINGS_WINDOW_H
 
 #include <QMainWindow>
-#include "QIcon"
-#include "qnode.hpp"
+#include <QIcon>
 #include "ui_settingswindow.h"
+#include "qnode.hpp"
 
-/*****************************************************************************
-** Interface [SettingsWindow]
-*****************************************************************************/
-/**
- * @brief Qt central, all operations relating to the view part here.
- */
-// class SettingsWindow : public QMainWindow
-// {
-//   Q_OBJECT
-
-// public:
-//   SettingsWindow(QWidget* parent = nullptr);
-//   ~SettingsWindow();
-//   QNode* qnode;
-
-// private:
-//   Ui::SettingsWindow* ui;
-//   void closeEvent(QCloseEvent* event);
-// };
 class SettingsWindow : public QMainWindow
 {
   Q_OBJECT
@@ -47,8 +23,8 @@ public:
 
 private:
   Ui::SettingsWindow* ui;
-  rclcpp::Node::SharedPtr node;  // 외부에서 받은 ROS2 노드 포인터
   void closeEvent(QCloseEvent* event);
 };
 
-#endif  // qt_usb_cam_vision_SETTINGS_WINDOW_H
+#endif  // QT_USB_CAM_VISION_SETTINGS_WINDOW_H
+

@@ -1,42 +1,30 @@
-/**
- * @file /include/qt_usb_cam_vision/qnode.hpp
- *
- * @brief Communications central!
- *
- * @date February 2011
- **/
-/*****************************************************************************
-** Ifdefs
-*****************************************************************************/
-
 #ifndef qt_usb_cam_vision_QNODE_HPP_
 #define qt_usb_cam_vision_QNODE_HPP_
 
-/*****************************************************************************
-** Includes
-*****************************************************************************/
-#ifndef Q_MOC_RUN
 #include <rclcpp/rclcpp.hpp>
-#endif
 #include <QThread>
+#include <QImage>
+#include <QPixmap>
+#include <sensor_msgs/msg/image.hpp>
 
-/*****************************************************************************
-** Class
-*****************************************************************************/
 class QNode : public QThread
 {
   Q_OBJECT
 public:
-  QNode();
+  QNode();  // 기본 생성자
   ~QNode();
 
 protected:
-  void run();
+  void run() override;
 
 private:
-  std::shared_ptr<rclcpp::Node> node;
+  rclcpp::Node::SharedPtr node;
+  rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr image_subscription_;
+
+  void imageCallback(const sensor_msgs::msg::Image::SharedPtr msg);
 
 Q_SIGNALS:
+  void imageReceived(const QPixmap& pixmap);
   void rosShutDown();
 };
 
