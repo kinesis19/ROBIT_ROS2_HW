@@ -86,7 +86,8 @@ void QNode::run()
 void QNode::imageCallback(const sensor_msgs::msg::Image::SharedPtr msg)
 {
   QImage qImage(msg->data.data(), msg->width, msg->height, QImage::Format_RGB888);
-  QPixmap pixmap = QPixmap::fromImage(qImage);
+  QImage rgbImage = qImage.rgbSwapped();  // BGR을 RGB로 변환
 
-  emit imageReceived(pixmap);
+  QPixmap pixmap = QPixmap::fromImage(rgbImage);
+  emit imageReceived(pixmap);  // QLabel 표시 시그널
 }
