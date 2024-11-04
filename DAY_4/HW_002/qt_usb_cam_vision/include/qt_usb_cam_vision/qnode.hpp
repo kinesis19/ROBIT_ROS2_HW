@@ -22,6 +22,10 @@
 #include <sensor_msgs/msg/image.hpp>
 #include <QImage>
 #include <QPixmap>
+#include <opencv2/opencv.hpp>
+#include <cv_bridge/cv_bridge.h>
+
+
 
 /*****************************************************************************
 ** Class
@@ -44,7 +48,7 @@ private:
 
 Q_SIGNALS:
   void rosShutDown();
-  void imageReceived(QPixmap pixmap);  // label에 이미지를 표기하기 위한 메서드
+  void imageReceived(const QPixmap& originalPixmap, const QPixmap& cannyPixmap);  // label에 이미지를 표기하기 위한 메서드
 };
 
 #endif /* qt_usb_cam_vision_QNODE_HPP_ */

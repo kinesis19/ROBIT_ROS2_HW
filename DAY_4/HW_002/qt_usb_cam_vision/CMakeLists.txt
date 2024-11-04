@@ -17,6 +17,7 @@ find_package(sensor_msgs REQUIRED)
 find_package(Boost 1.71.0 REQUIRED COMPONENTS thread)
 find_package(Qt5 COMPONENTS Widgets Core Gui Network REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(OpenCV REQUIRED)
 
 file(GLOB PRO_SOURCE_DIR RELATIVE ${CMAKE_SOURCE_DIR} FOLLOW_SYMLINKS  src/*.cpp)
 file(GLOB PRO_UI_DIR RELATIVE ${CMAKE_SOURCE_DIR} FOLLOW_SYMLINKS  ui/*.ui)

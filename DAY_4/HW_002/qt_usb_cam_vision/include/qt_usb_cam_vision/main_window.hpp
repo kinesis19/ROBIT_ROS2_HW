@@ -34,7 +34,8 @@ public:
   QNode* qnode;
 
 private slots:
-  void updateImage(const QPixmap& pixmap);  // 이미지 업데이트 메서드
+  //void updateImage(const QPixmap& pixmap);  // 이미지 업데이트 메서드
+  void updateImage(const QPixmap& originalPixmap, const QPixmap& cannyPixmap);
 
 private:
   Ui::MainWindowDesign* ui;
