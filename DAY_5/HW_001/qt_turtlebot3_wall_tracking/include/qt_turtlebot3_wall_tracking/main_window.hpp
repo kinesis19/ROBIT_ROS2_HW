@@ -23,7 +23,14 @@ private slots:
 
 private:
   Ui::MainWindowDesign* ui;
+
+
+  float linear_x;
+  float angular_z;
+  float distance;
+
   void closeEvent(QCloseEvent* event);
+  void setDistanceLabel(float distFront, float distBack, float distLeft, float distRight);
 };
 
 #endif  // qt_turtlebot3_wall_tracking_MAIN_WINDOW_H
