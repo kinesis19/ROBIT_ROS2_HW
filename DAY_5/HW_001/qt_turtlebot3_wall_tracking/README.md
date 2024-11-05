@@ -16,7 +16,4 @@ Control to a turtlebot3 in gazebo.
 8. 예외처리로 기본적인 Turtlebot3의 이동 조건 감지가 끝나고 코너를 감지하면, 좌회전을 하는 조건을 추가하였다.
 
 ## Demo Video
-<video controls width="600">
-  <source src="TestCaseVideo.mp4" type="video/mp4">
-  Demo Video
-</video>
+[Google Drive](https://drive.google.com/file/d/1BrQo9gfiG115AyxQ7Je06Ex0AUHxNykY/view?usp=sharing)
