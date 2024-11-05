@@ -1,10 +1,3 @@
-/**
- * @file /src/settings_window.cpp
- *
- * @brief Implementation for the qt gui.
- *
- * @date August 2024
- **/
 #include "../include/qt_usb_cam_vision/settings_window.hpp"
 
 SettingsWindow::SettingsWindow(QWidget* parent, rclcpp::Node::SharedPtr node)

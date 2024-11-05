@@ -1,11 +1,3 @@
-/**
- * @file /include/qt_usb_cam_vision/main_window.hpp
- *
- * @brief Qt based gui for %(package)s.
- *
- * @date August 2024
- **/
-
 #ifndef QT_USB_CAM_VISION_MAIN_WINDOW_H
 #define QT_USB_CAM_VISION_MAIN_WINDOW_H
 
@@ -16,7 +8,7 @@
 
 class MainWindow : public QMainWindow
 {
-  Q_OBJECT
+  Q_OBJECTus
 
 public:
   MainWindow(QWidget* parent);

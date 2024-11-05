@@ -1,5 +1,5 @@
-#ifndef qt_usb_cam_vision_QNODE_HPP_
-#define qt_usb_cam_vision_QNODE_HPP_
+#ifndef QT_USB_CAM_VISION_QNODE_HPP_
+#define QT_USB_CAM_VISION_QNODE_HPP_
 
 #include <rclcpp/rclcpp.hpp>
 #include <QThread>
@@ -28,4 +28,4 @@ Q_SIGNALS:
   void rosShutDown();
 };
 
-#endif /* qt_usb_cam_vision_QNODE_HPP_ */
+#endif /* QT_USB_CAM_VISION_QNODE_HPP_ */

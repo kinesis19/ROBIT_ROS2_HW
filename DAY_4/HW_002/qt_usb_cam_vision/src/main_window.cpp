@@ -1,14 +1,3 @@
-/**
- * @file /src/main_window.cpp
- *
- * @brief Implementation for the qt gui.
- *
- * @date August 2024
- **/
-/*****************************************************************************
-** Includes
-*****************************************************************************/
-
 #include "../include/qt_usb_cam_vision/main_window.hpp"
 
 MainWindow::MainWindow(QWidget* parent)

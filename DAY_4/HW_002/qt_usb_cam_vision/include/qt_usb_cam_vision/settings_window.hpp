@@ -1,10 +1,3 @@
-/**
- * @file /include/qt_usb_cam_vision/settings_window.hpp
- *
- * @brief Qt based gui for %(package)s.
- *
- * @date August 2024
- **/
 #ifndef QT_USB_CAM_VISION_SETTINGS_WINDOW_H
 #define QT_USB_CAM_VISION_SETTINGS_WINDOW_H
 
